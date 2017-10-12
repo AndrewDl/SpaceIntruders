@@ -41,7 +41,7 @@ namespace SpaceIntruders.ViewModel
             shipList.Add(new Ship("Battleship.png", 10, 110, "Test2", 10));
             shipList.Add(new Ship("Battleship.png", 10, 210, "Test3", 10));
             shipList.Add(new Ship("Battleship.png", 100, 110, "Test4", 10));
-            
+            /*branching test*/
             Ships = shipList;
 
             timer.Elapsed += Timer_Elapsed;
