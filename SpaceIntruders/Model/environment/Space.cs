@@ -11,7 +11,19 @@ namespace SpaceIntruders.Model
         private int width = 480;
         private int height = 640;
 
-        public Space(int width, int height)
+        private static Space instance = null;
+
+        public static Space getInstance(int width, int height)
+        {
+            if (instance == null)
+            {
+                instance = new Space(width, height);
+            }
+
+            return instance;
+        }
+
+        private Space(int width, int height)
         {
             this.width = width;
             this.height = height;

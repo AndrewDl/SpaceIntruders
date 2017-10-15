@@ -35,7 +35,7 @@ namespace SpaceIntruders.ViewModel
 
         public SimpleViewModel()
         {
-            CosmoSpace = new Space(480, 640);
+            CosmoSpace = Space.getInstance(480, 640);
 
             userShip = new Ship("../Battleship.png", 0, CosmoSpace.Heigth - 42, "UserShip", 10);
 
