@@ -37,11 +37,16 @@ namespace SpaceIntruders.ViewModel
         {
             CosmoSpace = new Space(480, 640);
 
-            userShip = new Ship("../Battleship.png", 0, CosmoSpace.Heigth - 42, "UserShip", 10);
+            userShip = new Ship("../Battleship.png", CosmoSpace.Width/2, CosmoSpace.Heigth - 42, "UserShip", 10);
+
+            //initialize key bindings
+            MoveLeft = new Command(moveLeft, canMoveLeft);
+            MoveRight = new Command(moveRight, canMoveRight);
+            Fire = new Command(fire, canFire);
 
             shipList = new ObservableCollection<Ship>();
             shipList.Add(userShip);
-            /*branching test*/
+
             Ships = shipList;
 
             timer.Elapsed += Timer_Elapsed;
@@ -57,7 +62,43 @@ namespace SpaceIntruders.ViewModel
                     ship.X += 10;
             }*/
         }
-                
+        
+        public ICommand MoveLeft { get; set; }
+
+        public ICommand MoveRight { get; set; }
+
+        public ICommand Fire { get; set; }
+
+        private void moveLeft(object param)
+        {
+            userShip.X -= 10;
+        }
+
+        private void moveRight(object param)
+        {
+            userShip.X += 10;
+        }
+
+        private void fire(object param)
+        {
+
+        }
+
+        private bool canMoveLeft(object param)
+        {
+            return userShip.X > 0;
+        }
+
+        private bool canMoveRight(object param)
+        {
+            return userShip.X+userShip.Width < CosmoSpace.Width;
+        }
+
+        private bool canFire(object param)
+        {
+            return true;
+        }
+
     }
 
 }

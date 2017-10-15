@@ -18,13 +18,13 @@
                 <TextBox Text = "{Binding Path = Name, Mode = OneWay}" 
                Width = "100" Margin = "3 5 3 5"/>
                 <TextBox Text = "{Binding Path = X, Mode = OneWay}" 
-               Width = "100" Margin = "0 5 3 5"/>
+               Width = "50" Margin = "0 5 3 5"/>
                 <TextBox Text = "{Binding Path = Y, Mode = OneWay}" 
-               Width = "100" Margin = "0 5 3 5"/>
+               Width = "50" Margin = "0 5 3 5"/>
                 <TextBox Text = "{Binding Path = Width, Mode = OneWay}" 
-               Width = "100" Margin = "0 5 3 5"/>
+               Width = "50" Margin = "0 5 3 5"/>
                 <TextBox Text = "{Binding Path = Height, Mode = OneWay}" 
-               Width = "100" Margin = "0 5 3 5"/>
+               Width = "50" Margin = "0 5 3 5"/>
 
             </StackPanel>
 
@@ -36,32 +36,41 @@
     </Window.Resources>
 
     <Grid>
-        <ListView>
-            
-            <ListView ItemsSource="{Binding Ships}" 
-                     ItemTemplate="{StaticResource shipsTemplate}"
-                     Margin="10,10,10,10"/>
-            
-            <ItemsControl ItemsSource="{Binding Ships}" Margin="10,10,10,10" Width="{Binding CosmoSpace.Width}" Height="{Binding CosmoSpace.Heigth}">
-                
-                <ItemsControl.Background>
-                    <SolidColorBrush x:Name="BorderBrush" Color="Black"/>
-                </ItemsControl.Background>
-                
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <Canvas/>
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+        <StackPanel>
+            <ListView>
 
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate >
-                        <Image HorizontalAlignment="Left" Margin="{Binding Path = Margin}" VerticalAlignment="Top" Source="{Binding Path = ImageSouce}" Width="{Binding Path = Width}" Height="{Binding Path = Height}"/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-            
-        </ListView>
+                <ListView ItemsSource="{Binding Ships}" 
+                     ItemTemplate="{StaticResource shipsTemplate}"
+                     Margin="10,10,10,10" />
+
+                <ItemsControl ItemsSource="{Binding Ships}" Margin="10,10,10,10" Width="{Binding CosmoSpace.Width}" Height="{Binding CosmoSpace.Heigth}">
+
+                    <ItemsControl.Background>
+                        <SolidColorBrush x:Name="BorderBrush" Color="Black"/>
+                    </ItemsControl.Background>
+
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate >
+                            <Image HorizontalAlignment="Left" Margin="{Binding Path = Margin}" VerticalAlignment="Top" Source="{Binding Path = ImageSouce}" Width="{Binding Path = Width}" Height="{Binding Path = Height}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+            </ListView>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <RepeatButton Command ="{Binding MoveLeft}" Width="50" Height="50" Margin="0,0,0,0" Content="&lt;"></RepeatButton>
+                <RepeatButton Command ="{Binding Fire}" Width="50" Height="50" Margin="0,0,0,0" Content="fire"></RepeatButton>
+                <RepeatButton Command ="{Binding MoveRight}" Width="50" Height="50" Margin="0,0,0,0" Content="&gt;"></RepeatButton>
+            </StackPanel>
+        
+        </StackPanel>
 
     </Grid>
 </Window>

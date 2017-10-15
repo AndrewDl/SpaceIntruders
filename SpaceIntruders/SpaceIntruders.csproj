@@ -55,7 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\environment\Asteroid.cs" />
+    <Compile Include="Model\environment\Environment.cs" />
+    <Compile Include="Model\environment\IEnemy.cs" />
+    <Compile Include="Model\environment\IEnvironmentObject.cs" />
+    <Compile Include="Model\environment\IPlayer.cs" />
+    <Compile Include="Model\environment\IShip.cs" />
     <Compile Include="Model\environment\Space.cs" />
+    <Compile Include="Model\parts\Armor.cs" />
+    <Compile Include="Model\parts\Blaster.cs" />
+    <Compile Include="Model\parts\ICartridge.cs" />
+    <Compile Include="Model\parts\IDevice.cs" />
+    <Compile Include="Model\parts\IWeapon.cs" />
+    <Compile Include="Model\parts\Shield.cs" />
+    <Compile Include="ViewModel\Command.cs" />
     <Compile Include="ViewModel\SimpleViewModel.cs" />
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -71,7 +84,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\entities\Ship.cs" />
+    <Compile Include="Model\environment\Ship.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -98,9 +111,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\parts\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Battleship.png" />
   </ItemGroup>
