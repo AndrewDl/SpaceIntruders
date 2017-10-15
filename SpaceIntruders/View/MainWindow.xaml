@@ -73,4 +73,9 @@
         </StackPanel>
 
     </Grid>
+    <Window.InputBindings>
+        <KeyBinding Key="A" Command="{Binding MoveLeft}"/>
+        <KeyBinding Key="D" Command="{Binding MoveRight}"/>
+        <KeyBinding Key="Space" Command="{Binding Fire}"/>
+    </Window.InputBindings>
 </Window>

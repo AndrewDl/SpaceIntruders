@@ -100,5 +100,11 @@ namespace SpaceIntruders.Model
                 PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(PropertyName));
             }
         }
+
+        public void Move(int directionX, int directionY)
+        {
+            X += directionX * 10;
+            Y += directionY * 10;
+        }
     }
 }
