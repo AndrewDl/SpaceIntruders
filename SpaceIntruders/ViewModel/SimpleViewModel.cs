@@ -14,14 +14,10 @@ namespace SpaceIntruders.ViewModel
     {
         ObservableCollection<Ship> shipList;
 
-        public ObservableCollection<Ship> Ships
-        {
-            get;
-            set;
-        }
+        public ObservableCollection<Ship> Ships { get; set; }
 
-        public Ship userShip { get; set; }
-
+        public Space CosmoSpace { get; set; }
+        
         private Timer timer = new Timer(100);
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -36,11 +32,13 @@ namespace SpaceIntruders.ViewModel
 
         public SimpleViewModel()
         {
+            CosmoSpace = new Space(480,640);
+
             shipList = new ObservableCollection<Ship>();
-            shipList.Add(new Ship("Battleship.png", 10, 10, "Test1", 10));
-            shipList.Add(new Ship("Battleship.png", 10, 110, "Test2", 10));
-            shipList.Add(new Ship("Battleship.png", 10, 210, "Test3", 10));
-            shipList.Add(new Ship("Battleship.png", 100, 110, "Test4", 10));
+            shipList.Add(new Ship("../Battleship.png", 10, 10, "Test1", 10));
+            shipList.Add(new Ship("../Battleship.png", 10, 110, "Test2", 10));
+            shipList.Add(new Ship("../Battleship.png", 10, 210, "Test3", 10));
+            shipList.Add(new Ship("../Battleship.png", 100, 110, "Test4", 10));
             /*branching test*/
             Ships = shipList;
 
@@ -53,7 +51,8 @@ namespace SpaceIntruders.ViewModel
 
             foreach (Ship ship in shipList )
             {
-                ship.X += 10;
+                if (ship.X+ship.Width < CosmoSpace.Width)
+                    ship.X += 10;
             }
         }
     }
