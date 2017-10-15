@@ -39,6 +39,7 @@ namespace SpaceIntruders.ViewModel
 
             userShip = new Ship("../Battleship.png", CosmoSpace.Width/2, CosmoSpace.Heigth - 42, "UserShip", 10);
 
+
             //initialize key bindings
             MoveLeft = new Command(moveLeft, canMoveLeft);
             MoveRight = new Command(moveRight, canMoveRight);
