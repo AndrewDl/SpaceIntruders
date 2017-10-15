@@ -7,8 +7,9 @@ using SpaceIntruders.Model;
 using System.Collections.ObjectModel;
 using System.Timers;
 using System.ComponentModel;
+using System.Windows.Input;
 
-namespace SpaceIntruders.ViewModel 
+namespace SpaceIntruders.ViewModel
 {
     class SimpleViewModel : INotifyPropertyChanged
     {
@@ -17,8 +18,10 @@ namespace SpaceIntruders.ViewModel
         public ObservableCollection<Ship> Ships { get; set; }
 
         public Space CosmoSpace { get; set; }
-        
+
         private Timer timer = new Timer(100);
+
+        private Ship userShip;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -32,13 +35,12 @@ namespace SpaceIntruders.ViewModel
 
         public SimpleViewModel()
         {
-            CosmoSpace = new Space(480,640);
+            CosmoSpace = new Space(480, 640);
+
+            userShip = new Ship("../Battleship.png", 0, CosmoSpace.Heigth - 42, "UserShip", 10);
 
             shipList = new ObservableCollection<Ship>();
-            shipList.Add(new Ship("../Battleship.png", 10, 10, "Test1", 10));
-            shipList.Add(new Ship("../Battleship.png", 10, 110, "Test2", 10));
-            shipList.Add(new Ship("../Battleship.png", 10, 210, "Test3", 10));
-            shipList.Add(new Ship("../Battleship.png", 100, 110, "Test4", 10));
+            shipList.Add(userShip);
             /*branching test*/
             Ships = shipList;
 
@@ -48,12 +50,14 @@ namespace SpaceIntruders.ViewModel
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-
-            foreach (Ship ship in shipList )
+            /*
+            foreach (Ship ship in shipList)
             {
-                if (ship.X+ship.Width < CosmoSpace.Width)
+                if (ship.X + ship.Width < CosmoSpace.Width)
                     ship.X += 10;
-            }
+            }*/
         }
+                
     }
+
 }
