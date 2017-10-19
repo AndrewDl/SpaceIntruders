@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SpaceIntruders.Model.PlayerShip" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABIAAgAQAQAAAAEQQwAAEAAEABABgEABAYAI=</HashCode>
+      <FileName>Model\environment\Ship.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceIntruders.Model.Space" Collapsed="true">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAQAQAAAAEAAAABAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\environment\Space.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceIntruders.Model.Blaster" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAIAgAACAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\parts\Blaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="SpaceIntruders.Model.IPlayer" Collapsed="true">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\environment\IPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SpaceIntruders.Model.IDevice" Collapsed="true">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\parts\IDevice.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SpaceIntruders.Model.IWeapon" Collapsed="true">
+    <Position X="4.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\parts\IWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

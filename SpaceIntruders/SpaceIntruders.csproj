@@ -51,29 +51,17 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="View\App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="Model\environment\Asteroid.cs" />
-    <Compile Include="Model\environment\Environment.cs" />
-    <Compile Include="Model\environment\IEnemy.cs" />
-    <Compile Include="Model\environment\IEnvironmentObject.cs" />
-    <Compile Include="Model\environment\IPlayer.cs" />
-    <Compile Include="Model\environment\IShip.cs" />
+    <Compile Include="Model\environment\AbstractEnemy.cs" />
+    <Compile Include="Model\environment\AbstractEnvironmentObject.cs" />
+    <Compile Include="Model\environment\AbstractShip.cs" />
     <Compile Include="Model\environment\Space.cs" />
-    <Compile Include="Model\parts\Armor.cs" />
     <Compile Include="Model\parts\Blaster.cs" />
+    <Compile Include="Model\parts\BlasterCartridge.cs" />
     <Compile Include="Model\parts\ICartridge.cs" />
     <Compile Include="Model\parts\IDevice.cs" />
     <Compile Include="Model\parts\IWeapon.cs" />
-    <Compile Include="Model\parts\Shield.cs" />
     <Compile Include="ViewModel\Command.cs" />
     <Compile Include="ViewModel\SimpleViewModel.cs" />
-    <Page Include="View\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="View\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -84,7 +72,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\environment\Ship.cs" />
+    <Compile Include="Model\environment\PlayerShip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -102,6 +90,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ModelClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -111,9 +100,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Battleship.png" />
+    <ApplicationDefinition Include="View\App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\sprites\Battleship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\sprites\CartridgeRed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceIntruders.parts
+namespace SpaceIntruders.Model
 {
-    interface ICartridge
+    abstract class Cartridge : AbstractEnvironmentObject
     {
+        int Speed { get; }
     }
 }
