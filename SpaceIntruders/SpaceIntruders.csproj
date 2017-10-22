@@ -54,6 +54,7 @@
     <Compile Include="Model\environment\AbstractEnemy.cs" />
     <Compile Include="Model\environment\AbstractEnvironmentObject.cs" />
     <Compile Include="Model\environment\AbstractShip.cs" />
+    <Compile Include="Model\environment\Asteroid.cs" />
     <Compile Include="Model\environment\Space.cs" />
     <Compile Include="Model\parts\Blaster.cs" />
     <Compile Include="Model\parts\BlasterCartridge.cs" />
