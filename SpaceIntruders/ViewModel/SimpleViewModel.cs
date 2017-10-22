@@ -81,29 +81,46 @@ namespace SpaceIntruders.ViewModel
 
         Dispatcher _dispatcher = Dispatcher.CurrentDispatcher;
 
+        //Commands to control user spacecraft
         public ICommand MoveLeft { get; set; }
 
         public ICommand MoveRight { get; set; }
 
         public ICommand Fire { get; set; }
 
+        /// <summary>
+        /// method moves userShip left
+        /// </summary>
+        /// <param name="param"></param>
         private void moveLeft(object param)
         {
             userShip.X -= 10;
         }
 
+        /// <summary>
+        /// method moves userShip right
+        /// </summary>
+        /// <param name="param"></param>
         private void moveRight(object param)
         {
             userShip.X += 10;
         }
 
+        /// <summary>
+        /// causes user ship to fire
+        /// </summary>
+        /// <param name="param"></param>
         private void fire(object param)
         {
-            int x = userShip.X;
-            int y = userShip.Y;
+            //int x = userShip.X;
+            //int y = userShip.Y;
 
-            BlasterCartridge cartridge = new BlasterCartridge(x, y);
-            environmentObjects.Add(cartridge);
+            //BlasterCartridge cartridge = new BlasterCartridge(x, y);
+            IList<BlasterCartridge> cartridges = userShip.Fire();
+            foreach(BlasterCartridge cartridge in cartridges)
+            {
+                environmentObjects.Add(cartridge);
+            }
             
         }
 
