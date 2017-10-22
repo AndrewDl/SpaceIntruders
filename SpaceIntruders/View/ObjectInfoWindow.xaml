@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpaceIntruders.View"
         mc:Ignorable="d"
-        Title="ObjectInfoWindow" Height="300" Width="552.733">
+        Title="ObjectInfoWindow" Height="627.523" Width="552.733" Left="10" Top="10">
     <Window.Resources>
         <DataTemplate x:Key = "shipsTemplate">
             <StackPanel Orientation = "Horizontal">
