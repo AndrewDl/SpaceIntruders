@@ -57,7 +57,6 @@
     <Compile Include="Model\environment\Space.cs" />
     <Compile Include="Model\parts\Blaster.cs" />
     <Compile Include="Model\parts\BlasterCartridge.cs" />
-    <Compile Include="Model\parts\ICartridge.cs" />
     <Compile Include="Model\parts\IDevice.cs" />
     <Compile Include="Model\parts\IWeapon.cs" />
     <Compile Include="ViewModel\Command.cs" />

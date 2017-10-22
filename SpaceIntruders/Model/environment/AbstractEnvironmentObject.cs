@@ -85,5 +85,7 @@ namespace SpaceIntruders.Model
                 PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(PropertyName));
             }
         }
+
+        abstract public void Destroy();
     }
 }

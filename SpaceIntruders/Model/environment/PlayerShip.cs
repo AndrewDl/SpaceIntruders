@@ -11,12 +11,14 @@ namespace SpaceIntruders.Model
 {
     class PlayerShip : AbstractShip
     {
-        private IWeapon weapons = new Blaster();
+        private IWeapon weapon = new Blaster();
         
         private string name = "Untitled";
         private int hp = 0;
-                
-        public event EventHandler Fired;
+        
+        private PlayerShip()
+        {
+        }
 
         /// <summary>
         /// Creates a player ship
@@ -36,19 +38,15 @@ namespace SpaceIntruders.Model
 
             this.width = 32;
             this.height = 32;
-
-            Timer fireTimer = new Timer(weapons.FireRate);
+            
+            Timer fireTimer = new Timer(weapon.FireRate);
             fireTimer.Elapsed += FireTimer_Elapsed;
             fireTimer.Start();
         }
 
-        private PlayerShip()
-        {
-        }
-
         private void FireTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-
+            
         }
                 
 
@@ -104,5 +102,9 @@ namespace SpaceIntruders.Model
             Y += directionY * 10;
         }
 
+        public override void Destroy()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

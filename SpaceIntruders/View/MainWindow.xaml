@@ -39,11 +39,11 @@
         <StackPanel>
             <ListView>
 
-                <ListView ItemsSource="{Binding Ships}" 
+                <ListView ItemsSource="{Binding EnvironmentObjects}" 
                      ItemTemplate="{StaticResource shipsTemplate}"
                      Margin="10,10,10,10" />
 
-                <ItemsControl ItemsSource="{Binding Ships}" Margin="10,10,10,10" Width="{Binding CosmoSpace.Width}" Height="{Binding CosmoSpace.Heigth}">
+                <ItemsControl ItemsSource="{Binding EnvironmentObjects}" Margin="10,10,10,10" Width="{Binding CosmoSpace.Width}" Height="{Binding CosmoSpace.Heigth}">
 
                     <ItemsControl.Background>
                         <SolidColorBrush x:Name="BorderBrush" Color="Black"/>

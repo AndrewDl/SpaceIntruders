@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Timers;
 using System.ComponentModel;
 using System.Windows.Input;
+using System.Windows.Threading;
 
 namespace SpaceIntruders.ViewModel
 {
@@ -25,7 +26,7 @@ namespace SpaceIntruders.ViewModel
         /// </summary>
         public Space CosmoSpace { get; set; }
 
-        private Timer timer = new Timer(100);
+        private Timer timer = new Timer(10);
 
         private PlayerShip userShip;
 
@@ -44,8 +45,7 @@ namespace SpaceIntruders.ViewModel
             CosmoSpace = Space.getInstance(480, 800);
 
             userShip = new PlayerShip("../View/sprites/Battleship.png", CosmoSpace.Width/2, CosmoSpace.Heigth - 42, "UserShip", 10);
-
-
+            
             //initialize key bindings
             MoveLeft = new Command(moveLeft, canMoveLeft);
             MoveRight = new Command(moveRight, canMoveRight);
@@ -67,14 +67,20 @@ namespace SpaceIntruders.ViewModel
         /// <param name="e"></param>
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            /*
-            foreach (Ship ship in shipList)
+            foreach (AbstractEnvironmentObject o in environmentObjects.ToArray())
             {
-                if (ship.X + ship.Width < CosmoSpace.Width)
-                    ship.X += 10;
-            }*/
+                if ((o.Y < 0) || (o.Y > CosmoSpace.Heigth))
+                {
+                    _dispatcher.Invoke(new Action(() => {
+                        environmentObjects.Remove(o);
+                        o.Destroy();
+                    }));                    
+                }
+            }
         }
-        
+
+        Dispatcher _dispatcher = Dispatcher.CurrentDispatcher;
+
         public ICommand MoveLeft { get; set; }
 
         public ICommand MoveRight { get; set; }
