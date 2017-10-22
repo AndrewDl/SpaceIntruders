@@ -18,7 +18,7 @@ namespace SpaceIntruders.Model
         protected int height;
 
         protected string imageURL = "";
-
+        
         /// <summary>
         /// X - coordinate of the object
         /// </summary>

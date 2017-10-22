@@ -41,7 +41,7 @@ namespace SpaceIntruders.ViewModel
         }
 
         public SimpleViewModel()
-        {
+        {   
             CosmoSpace = Space.getInstance(480, 800);
 
             userShip = new PlayerShip("../View/sprites/Battleship.png", CosmoSpace.Width/2, CosmoSpace.Heigth - 42, "UserShip", 10);

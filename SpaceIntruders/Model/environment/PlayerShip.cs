@@ -38,7 +38,7 @@ namespace SpaceIntruders.Model
 
             this.width = 32;
             this.height = 32;
-            
+
             Timer fireTimer = new Timer(weapon.FireRate);
             fireTimer.Elapsed += FireTimer_Elapsed;
             fireTimer.Start();

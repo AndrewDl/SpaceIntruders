@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Timers;
-using SpaceIntruders.View;
 
-namespace SpaceIntruders
+namespace SpaceIntruders.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ObjectInfoWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ObjectInfoWindow : Window
     {
-
-        public MainWindow()
+        public ObjectInfoWindow()
         {
             InitializeComponent();
-
-            Window w2 = new ObjectInfoWindow();
-            w2.DataContext = this.DataContext;
-            w2.Show();
         }
-
-
     }
 }
