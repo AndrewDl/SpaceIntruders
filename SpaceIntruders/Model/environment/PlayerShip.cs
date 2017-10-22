@@ -12,10 +12,10 @@ namespace SpaceIntruders.Model
     class PlayerShip : AbstractShip
     {
         private IWeapon weapon = new Blaster();
-
+        
         private string name = "Untitled";
         private int hp = 0;
-
+        
         private PlayerShip()
         {
         }
@@ -38,7 +38,7 @@ namespace SpaceIntruders.Model
 
             this.width = 32;
             this.height = 32;
-
+            
             Timer fireTimer = new Timer(weapon.FireRate);
             fireTimer.Elapsed += FireTimer_Elapsed;
             fireTimer.Start();
@@ -46,9 +46,9 @@ namespace SpaceIntruders.Model
 
         private void FireTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-
+            
         }
-
+                
 
         /// <summary>
         /// Grants read/write access to hitpoints of the spacecraft
@@ -120,5 +120,10 @@ namespace SpaceIntruders.Model
             return cartridges;
         }
         
+
+        public override bool Collides(AbstractEnvironmentObject environmentObject)
+        {
+            return true;
+        }
     }
 }

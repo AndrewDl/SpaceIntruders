@@ -86,6 +86,16 @@ namespace SpaceIntruders.Model
             }
         }
 
+        /// <summary>
+        /// Implement this method to destroy object in correct way
+        /// </summary>
         abstract public void Destroy();
+
+        /// <summary>
+        /// Implement this method to check collision with given environmentalObject
+        /// </summary>
+        /// <param name="environmentObject"></param>
+        /// <returns>true - if it collides; false if it is not</returns>
+        abstract public bool Collides(AbstractEnvironmentObject environmentObject);
     }
 }
