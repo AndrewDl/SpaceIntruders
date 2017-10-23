@@ -23,6 +23,8 @@ namespace SpaceIntruders.Model
 
         public BlasterCartridge(int x, int y)
         {
+            id = (ulong)(new Random().Next());
+
             this.x = x;
             this.y = y;
             width = 8;
@@ -57,6 +59,14 @@ namespace SpaceIntruders.Model
             get
             {
                 return speed;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return "Cartridge: " + id; 
             }
         }
 

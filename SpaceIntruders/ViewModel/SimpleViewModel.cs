@@ -52,6 +52,10 @@ namespace SpaceIntruders.ViewModel
             Fire = new Command(fire, canFire);
 
             environmentObjects = new ObservableCollection<AbstractEnvironmentObject>();
+
+            Asteroid a = new Asteroid() { X = 50, Y = 10 };
+
+            environmentObjects.Add(a);
             environmentObjects.Add(userShip);
 
             EnvironmentObjects = environmentObjects;

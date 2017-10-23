@@ -55,6 +55,7 @@
     <Compile Include="Model\environment\AbstractEnemy.cs" />
     <Compile Include="Model\environment\AbstractEnvironmentObject.cs" />
     <Compile Include="Model\environment\AbstractShip.cs" />
+    <Compile Include="Model\environment\Asteroid.cs" />
     <Compile Include="Model\environment\Space.cs" />
     <Compile Include="Model\parts\Blaster.cs" />
     <Compile Include="Model\parts\BlasterCartridge.cs" />
@@ -100,6 +101,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="View\sprites\Battleship.psd" />
+    <None Include="View\sprites\CartridgeRed.psd" />
+    <None Include="View\sprites\NoImage128.psd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -125,6 +129,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\sprites\CartridgeRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\sprites\NoImage128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
