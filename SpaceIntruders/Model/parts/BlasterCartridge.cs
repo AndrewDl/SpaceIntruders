@@ -15,12 +15,7 @@ namespace SpaceIntruders.Model
         private int speed = 10;
         
         private BlasterCartridge() { }
-
-        ~BlasterCartridge()
-        {
-
-        }
-
+        
         public BlasterCartridge(int x, int y)
         {
             id = (ulong)(new Random().Next());
@@ -44,6 +39,11 @@ namespace SpaceIntruders.Model
         public override void Destroy()
         {
             t.Dispose();
+        }
+
+        public override bool Collides(AbstractEnvironmentObject environmentObject)
+        {
+            throw new NotImplementedException();
         }
 
         public int ID

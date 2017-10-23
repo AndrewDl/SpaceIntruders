@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,5 +58,10 @@ namespace SpaceIntruders.Model
             //X += directionX * shift;
         }
 
+        public override bool Collides(AbstractEnvironmentObject environmentObject)
+        {
+            //throw new NotImplementedException();
+            throw new NotImplementedException();
+        }
     }
 }

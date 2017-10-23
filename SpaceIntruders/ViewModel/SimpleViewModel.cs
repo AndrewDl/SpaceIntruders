@@ -54,8 +54,12 @@ namespace SpaceIntruders.ViewModel
             environmentObjects = new ObservableCollection<AbstractEnvironmentObject>();
 
             Asteroid a = new Asteroid() { X = 50, Y = 10 };
+            Asteroid a1 = new Asteroid() { X = 322, Y = 10 };
+            Asteroid a2 = new Asteroid() { X = 188, Y = 10 };
 
             environmentObjects.Add(a);
+            environmentObjects.Add(a1);
+            environmentObjects.Add(a2);
             environmentObjects.Add(userShip);
 
             EnvironmentObjects = environmentObjects;
@@ -73,6 +77,17 @@ namespace SpaceIntruders.ViewModel
         {
             foreach (AbstractEnvironmentObject o in environmentObjects.ToArray())
             {
+                foreach (AbstractEnvironmentObject o2 in environmentObjects.ToArray())
+                {
+                    if (o.Collides(o2))
+                    {
+                        environmentObjects.Remove(o);
+                        environmentObjects.Remove(o2);
+                        o.Destroy();
+                        o2.Destroy();
+                    }
+                }
+
                 if ((o.Y < 0) || (o.Y > CosmoSpace.Heigth))
                 {
                     _dispatcher.Invoke(new Action(() => {

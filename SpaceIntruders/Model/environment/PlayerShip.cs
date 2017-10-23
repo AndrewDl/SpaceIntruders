@@ -18,6 +18,7 @@ namespace SpaceIntruders.Model
         
         private PlayerShip()
         {
+            
         }
 
         /// <summary>
@@ -104,12 +105,12 @@ namespace SpaceIntruders.Model
 
         public override void Destroy()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         public override bool Collides(AbstractEnvironmentObject environmentObject)
         {
-            return true;
+            return false;
         }
 
         /// <summary>
@@ -125,10 +126,5 @@ namespace SpaceIntruders.Model
             return cartridges;
         }
         
-
-        public override bool Collides(AbstractEnvironmentObject environmentObject)
-        {
-            return true;
-        }
     }
 }
