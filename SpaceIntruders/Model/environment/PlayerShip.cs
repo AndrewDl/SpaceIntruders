@@ -107,6 +107,11 @@ namespace SpaceIntruders.Model
             throw new NotImplementedException();
         }
 
+        public override bool Collides(AbstractEnvironmentObject environmentObject)
+        {
+            return true;
+        }
+
         /// <summary>
         /// Make ship to fire
         /// </summary>
