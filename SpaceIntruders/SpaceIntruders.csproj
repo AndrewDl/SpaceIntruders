@@ -101,6 +101,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="View\sprites\Asteroid.psd" />
     <None Include="View\sprites\Battleship.psd" />
     <None Include="View\sprites\CartridgeRed.psd" />
     <None Include="View\sprites\NoImage128.psd" />
@@ -132,6 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="View\sprites\NoImage128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="View\sprites\Asteroid.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

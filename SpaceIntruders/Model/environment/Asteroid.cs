@@ -13,12 +13,12 @@ namespace SpaceIntruders.Model
         int shift = 5;
         double directionX = 0;
         double directionY = 1;
-
+        
         Timer t = new Timer(50);
 
         public Asteroid()
         {
-            imageURL = @"..\View\sprites\NoImage128.png";
+            imageURL = @"..\View\sprites\Asteroid.png";
             width = 64;
             height = 64;
 
@@ -34,6 +34,9 @@ namespace SpaceIntruders.Model
 
             int dirX = (int)Math.Round(directionX);
             int dirY = (int)Math.Round(directionY);
+
+            //spin it clockwise
+            orientation = orientation+15<360 ? orientation + 15 : 0;
 
             Move(dirX, dirY);
         }

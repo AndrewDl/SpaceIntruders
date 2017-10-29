@@ -15,6 +15,7 @@ namespace SpaceIntruders.Model
 
         private string name = "Untitled";
         private int hp = 0;
+        private new int orientation = 0;
 
         private PlayerShip()
         {

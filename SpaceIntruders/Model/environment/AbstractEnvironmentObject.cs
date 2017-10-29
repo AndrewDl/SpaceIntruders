@@ -16,6 +16,7 @@ namespace SpaceIntruders.Model
         protected int y;
         protected int width;
         protected int height;
+        protected int orientation = 0;
 
         protected string imageURL = "";
         
@@ -47,6 +48,20 @@ namespace SpaceIntruders.Model
                 y = value;
                 NotifyPropertyChanged("Y");
                 NotifyPropertyChanged("Margin");
+            }
+        }
+
+        /// <summary>
+        /// Orientation in space of the object; Accepts values
+        /// </summary>
+        public int Orientation {
+            get { return 45; }
+            set {
+                if ((value < 0) || (value >= 360))
+                {
+                    throw new ArgumentOutOfRangeException("Orientation should be in diapason 0-360, except 360;");
+                }
+                orientation = value;
             }
         }
 
