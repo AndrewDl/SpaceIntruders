@@ -107,12 +107,7 @@ namespace SpaceIntruders.Model
         {
             //throw new NotImplementedException();
         }
-
-        public override bool Collides(AbstractEnvironmentObject environmentObject)
-        {
-            return false;
-        }
-
+        
         /// <summary>
         /// Make ship to fire
         /// </summary>
@@ -121,7 +116,7 @@ namespace SpaceIntruders.Model
         {
             IList<BlasterCartridge> cartridges = new List<BlasterCartridge>();
 
-            cartridges.Add(new BlasterCartridge(width / 2 + x - 4, y));
+            cartridges.Add(new BlasterCartridge(width / 2 + x - 4, y - 16));
 
             return cartridges;
         }

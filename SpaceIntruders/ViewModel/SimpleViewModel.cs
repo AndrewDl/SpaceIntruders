@@ -27,6 +27,7 @@ namespace SpaceIntruders.ViewModel
         public Space CosmoSpace { get; set; }
 
         private Timer timer = new Timer(10);
+        private Timer spawnTimer = new Timer(1000);
 
         private PlayerShip userShip;
 
@@ -66,6 +67,23 @@ namespace SpaceIntruders.ViewModel
 
             timer.Elapsed += Timer_Elapsed;
             timer.Enabled = true;
+
+            spawnTimer.Elapsed += SpawnTimer_Elapsed;
+            spawnTimer.Enabled = true;
+        }
+
+        private void SpawnTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Random r = new Random();
+            int value = r.Next(1, 16);
+            if (16/value == 1)
+            {
+                int size = r.Next(32, 64);
+                int xPos = r.Next(0, CosmoSpace.Width-size);
+                _dispatcher.Invoke(new Action(() => {
+                    environmentObjects.Add(Asteroid.spawn(xPos,size));
+                }));
+            }
         }
 
         /// <summary>
@@ -75,14 +93,19 @@ namespace SpaceIntruders.ViewModel
         /// <param name="e"></param>
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            foreach (AbstractEnvironmentObject o in environmentObjects.ToArray())
+            AbstractEnvironmentObject[] objectPool = environmentObjects.ToArray();
+            for (int i=0; i < objectPool.Length; i++)
             {
-                foreach (AbstractEnvironmentObject o2 in environmentObjects.ToArray())
+                AbstractEnvironmentObject o = objectPool[i];
+                for (int j = i+1; j < objectPool.Length; j++)
                 {
-                    if (o.Collides(o2))
+                    AbstractEnvironmentObject o2 = objectPool[j];
+                    if (o.CollidesWith(o2))
                     {
-                        environmentObjects.Remove(o);
-                        environmentObjects.Remove(o2);
+                        _dispatcher.Invoke(new Action(() => {
+                            environmentObjects.Remove(o);
+                            environmentObjects.Remove(o2);
+                        }));
                         o.Destroy();
                         o2.Destroy();
                     }

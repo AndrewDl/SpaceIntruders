@@ -41,11 +41,6 @@ namespace SpaceIntruders.Model
             t.Dispose();
         }
 
-        public override bool Collides(AbstractEnvironmentObject environmentObject)
-        {
-            throw new NotImplementedException();
-        }
-
         public int ID
         {
             get

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,12 +54,12 @@ namespace SpaceIntruders.Model
         /// <summary>
         /// Width of the craft.
         /// </summary>
-        public double Width { get { return width; } }
+        public int Width { get { return width; } }
 
         /// <summary>
         /// Height of the craft
         /// </summary>
-        public double Height { get { return height; } }
+        public int Height { get { return height; } }
 
         /// <summary>
         /// Path to the sprite of the object
@@ -96,6 +97,11 @@ namespace SpaceIntruders.Model
         /// </summary>
         /// <param name="environmentObject"></param>
         /// <returns>true - if it collides; false if it is not</returns>
-        abstract public bool Collides(AbstractEnvironmentObject environmentObject);
+        public bool CollidesWith(AbstractEnvironmentObject environmentObject)
+        {
+            Rectangle r = new Rectangle(x, y, width, height);
+            Rectangle r2 = new Rectangle(environmentObject.X, environmentObject.Y, environmentObject.Width, environmentObject.Height);
+            return r.IntersectsWith(r2);
+        }
     }
 }
