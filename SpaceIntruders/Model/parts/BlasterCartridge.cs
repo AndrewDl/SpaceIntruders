@@ -15,12 +15,7 @@ namespace SpaceIntruders.Model
         private int speed = 10;
         
         private BlasterCartridge() { }
-
-        ~BlasterCartridge()
-        {
-
-        }
-
+        
         public BlasterCartridge(int x, int y)
         {
             id = (ulong)(new Random().Next());

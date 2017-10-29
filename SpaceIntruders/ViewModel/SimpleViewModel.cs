@@ -27,6 +27,7 @@ namespace SpaceIntruders.ViewModel
         public Space CosmoSpace { get; set; }
 
         private Timer timer = new Timer(10);
+        private Timer spawnTimer = new Timer(1000);
 
         private PlayerShip userShip;
 
@@ -54,14 +55,35 @@ namespace SpaceIntruders.ViewModel
             environmentObjects = new ObservableCollection<AbstractEnvironmentObject>();
 
             Asteroid a = new Asteroid() { X = 50, Y = 10 };
+            Asteroid a1 = new Asteroid() { X = 322, Y = 10 };
+            Asteroid a2 = new Asteroid() { X = 188, Y = 10 };
 
             environmentObjects.Add(a);
+            environmentObjects.Add(a1);
+            environmentObjects.Add(a2);
             environmentObjects.Add(userShip);
 
             EnvironmentObjects = environmentObjects;
 
             timer.Elapsed += Timer_Elapsed;
             timer.Enabled = true;
+
+            spawnTimer.Elapsed += SpawnTimer_Elapsed;
+            spawnTimer.Enabled = true;
+        }
+
+        private void SpawnTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Random r = new Random();
+            int value = r.Next(1, 16);
+            if (16/value == 1)
+            {
+                int size = r.Next(32, 64);
+                int xPos = r.Next(0, CosmoSpace.Width-size);
+                _dispatcher.Invoke(new Action(() => {
+                    environmentObjects.Add(Asteroid.spawn(xPos,size));
+                }));
+            }
         }
 
         /// <summary>
@@ -71,8 +93,24 @@ namespace SpaceIntruders.ViewModel
         /// <param name="e"></param>
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            foreach (AbstractEnvironmentObject o in environmentObjects.ToArray())
+            AbstractEnvironmentObject[] objectPool = environmentObjects.ToArray();
+            for (int i=0; i < objectPool.Length; i++)
             {
+                AbstractEnvironmentObject o = objectPool[i];
+                for (int j = i+1; j < objectPool.Length; j++)
+                {
+                    AbstractEnvironmentObject o2 = objectPool[j];
+                    if (o.CollidesWith(o2))
+                    {
+                        _dispatcher.Invoke(new Action(() => {
+                            environmentObjects.Remove(o);
+                            environmentObjects.Remove(o2);
+                        }));
+                        o.Destroy();
+                        o2.Destroy();
+                    }
+                }
+
                 if ((o.Y < 0) || (o.Y > CosmoSpace.Heigth))
                 {
                     _dispatcher.Invoke(new Action(() => {

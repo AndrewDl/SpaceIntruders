@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,5 +61,23 @@ namespace SpaceIntruders.Model
             //X += directionX * shift;
         }
 
+        /// <summary>
+        /// Spawns asteroid on given x coordinate, Y coordinate depents on the size of asteroid
+        /// </summary>
+        /// <param name="x">spawn position</param>
+        /// <param name="size">asteroid size (width and height both)</param>
+        /// <returns></returns>
+        public static Asteroid spawn(int x, int size)
+        {
+
+            return new Asteroid()
+            {
+                X = x,
+                Y = 0 + size,
+                width = size,
+                height = size
+            };
+        }
+        
     }
 }
