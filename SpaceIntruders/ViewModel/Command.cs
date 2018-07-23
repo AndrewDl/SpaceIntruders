@@ -9,6 +9,8 @@ namespace SpaceIntruders.ViewModel
 {
     class Command : ICommand
     {
+        //change made by Julya
+        int a = 511;//this field will bring us happiness
 
         Action<object> execute;
         Func<object, bool> canExecute;
