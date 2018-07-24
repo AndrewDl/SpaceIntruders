@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceIntruders.environment
+namespace SpaceIntruders.Model
 {
-    class Environment
+    abstract class AbstractEnemy : AbstractShip
     {
     }
 }

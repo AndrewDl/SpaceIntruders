@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SpaceIntruders.Model.AbstractEnemy" Collapsed="true">
+    <Position X="4.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\environment\AbstractEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceIntruders.Model.AbstractEnvironmentObject" Collapsed="true">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAIQAQAAAAEAAgAAAAAEABABgAAAAYgI=</HashCode>
+      <FileName>Model\environment\AbstractEnvironmentObject.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SpaceIntruders.Model.AbstractShip" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Model\environment\AbstractShip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceIntruders.Model.PlayerShip" Collapsed="true">
+    <Position X="6.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAQQSAAEAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Model\environment\PlayerShip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceIntruders.Model.Space" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAQAQAAAAEAAAABAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\environment\Space.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SpaceIntruders.Model.Blaster" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAIAgAACAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\parts\Blaster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SpaceIntruders.Model.BlasterCartridge" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgACAAAAAAAABAAAAAQAAAAQAAAAAAAA=</HashCode>
+      <FileName>Model\parts\BlasterCartridge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SpaceIntruders.Model.IDevice" Collapsed="true">
+    <Position X="2" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\parts\IDevice.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SpaceIntruders.Model.IWeapon" Collapsed="true">
+    <Position X="2" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAACAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\parts\IWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

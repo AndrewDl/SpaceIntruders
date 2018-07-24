@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceIntruders.environment
+namespace SpaceIntruders.Model
 {
-    interface IShip
+    abstract class AbstractShip : AbstractEnvironmentObject
     {
+        event EventHandler Fired;
     }
 }
