@@ -14,7 +14,7 @@ namespace SpaceIntruders.ViewModel
 {
     class SimpleViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<AbstractEnvironmentObject> environmentObjects;
+//        private ObservableCollection<AbstractEnvironmentObject> environmentObjects;
 
         /// <summary>
         /// List of objects, currently existing on the CosmoCpace
@@ -43,7 +43,7 @@ namespace SpaceIntruders.ViewModel
 
         public SimpleViewModel()
         {   
-            CosmoSpace = Space.getInstance(480, 800);
+            CosmoSpace = Space.getInstance(480, 600);
 
             userShip = new PlayerShip("../View/sprites/Battleship.png", CosmoSpace.Width/2, CosmoSpace.Heigth - 42, "UserShip", 10);
             
@@ -52,18 +52,18 @@ namespace SpaceIntruders.ViewModel
             MoveRight = new Command(moveRight, canMoveRight);
             Fire = new Command(fire, canFire);
 
-            environmentObjects = new ObservableCollection<AbstractEnvironmentObject>();
+            EnvironmentObjects = new ObservableCollection<AbstractEnvironmentObject>();
 
             Asteroid a = new Asteroid() { X = 50, Y = 10 };
             Asteroid a1 = new Asteroid() { X = 322, Y = 10 };
             Asteroid a2 = new Asteroid() { X = 188, Y = 10 };
 
-            environmentObjects.Add(a);
-            environmentObjects.Add(a1);
-            environmentObjects.Add(a2);
-            environmentObjects.Add(userShip);
+            EnvironmentObjects.Add(a);
+            EnvironmentObjects.Add(a1);
+            EnvironmentObjects.Add(a2);
+            EnvironmentObjects.Add(userShip);
 
-            EnvironmentObjects = environmentObjects;
+//            EnvironmentObjects = environmentObjects;
 
             timer.Elapsed += Timer_Elapsed;
             timer.Enabled = true;
@@ -81,7 +81,7 @@ namespace SpaceIntruders.ViewModel
                 int size = r.Next(32, 64);
                 int xPos = r.Next(0, CosmoSpace.Width-size);
                 _dispatcher.Invoke(new Action(() => {
-                    environmentObjects.Add(Asteroid.spawn(xPos,size));
+                    EnvironmentObjects.Add(Asteroid.spawn(xPos,size));
                 }));
             }
         }
@@ -93,7 +93,7 @@ namespace SpaceIntruders.ViewModel
         /// <param name="e"></param>
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            AbstractEnvironmentObject[] objectPool = environmentObjects.ToArray();
+            AbstractEnvironmentObject[] objectPool = EnvironmentObjects.ToArray();
             for (int i=0; i < objectPool.Length; i++)
             {
                 AbstractEnvironmentObject o = objectPool[i];
@@ -103,8 +103,8 @@ namespace SpaceIntruders.ViewModel
                     if (o.CollidesWith(o2))
                     {
                         _dispatcher.Invoke(new Action(() => {
-                            environmentObjects.Remove(o);
-                            environmentObjects.Remove(o2);
+                            EnvironmentObjects.Remove(o);
+                            EnvironmentObjects.Remove(o2);
                         }));
                         o.Destroy();
                         o2.Destroy();
@@ -114,7 +114,7 @@ namespace SpaceIntruders.ViewModel
                 if ((o.Y < 0) || (o.Y > CosmoSpace.Heigth))
                 {
                     _dispatcher.Invoke(new Action(() => {
-                        environmentObjects.Remove(o);
+                        EnvironmentObjects.Remove(o);
                         o.Destroy();
                     }));                    
                 }
@@ -161,7 +161,7 @@ namespace SpaceIntruders.ViewModel
             IList<BlasterCartridge> cartridges = userShip.Fire();
             foreach(BlasterCartridge cartridge in cartridges)
             {
-                environmentObjects.Add(cartridge);
+                EnvironmentObjects.Add(cartridge);
             }
             
         }
